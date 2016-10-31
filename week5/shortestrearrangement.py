@@ -1,4 +1,5 @@
 import sys
+import random
 
 filename = sys.argv[1]
 
@@ -51,6 +52,7 @@ def colorededges(p):
 			nodes = chromosometocycle(chromosome)
 			for j in range(1,len(chromosome)):
 				edges.append([nodes[2*j-1],nodes[2*j]])
+			chromosome.pop()
 		return edges
 
 def get_blacked_edges(col_edges):
@@ -109,7 +111,8 @@ def two_breakongenome(p,i,j,k,l):
 	return ans
 
 def shortestrearrangement(p,q):
-	print p
+	#print p
+	print '('+' '.join('+'+str(i) if i>0 else str(i) for i in p)+')'
 	red_edges = colorededges(p)
 	blue_edges = colorededges(q)
 	breakpointgraph = red_edges + blue_edges
@@ -124,7 +127,8 @@ def shortestrearrangement(p,q):
 		for blue_edge in blue_edges:
 			if blue_edge not in red_edges:
 				temp_list.append(blue_edge)
-		node = temp_list[0]
+		node = random.choice(temp_list)
+		#node = temp_list[0]
 		#from_edge,to_edge = 0,0
 		for red_edge in red_edges:
 			if node[0] in red_edge:
@@ -157,9 +161,15 @@ def shortestrearrangement(p,q):
 			red_edges.append([to_edge[0],from_edge[1]])
 		breakpointgraph = red_edges + blue_edges
 		p = two_breakongenome(p,to_edge[0],to_edge[1],from_edge[1],from_edge[0])
-		print p
-		p = p[0]
-	
+		str_p = ''
+		for res in p:
+			str_p += '('+' '.join('+'+str(i) if i>0 else str(i) for i in res)+')'
+		print str_p
+		if len(p) == 1:
+			p = p[0]
+		
+		
+		#print p
 	return None
 
 if __name__ == '__main__':
