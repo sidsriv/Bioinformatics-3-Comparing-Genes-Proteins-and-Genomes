@@ -1,3 +1,5 @@
+__author__ = 'Siddhant Srivastava'
+
 import sys
 
 filename = sys.argv[1]
@@ -7,7 +9,8 @@ with open(filename) as file:
 	for line in file:
 		data.append(line[:-1])
 
-money = map(int,data[0].strip())
+#money = map(int,data[0].strip())
+money = int(data[0])
 coins = []
 coins = [int(coin) for coin in data[1].strip().split(',')]
 

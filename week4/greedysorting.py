@@ -1,3 +1,5 @@
+__author__ = 'Siddhant Srivastava'
+
 import sys
 
 filename = sys.argv[1]
@@ -36,4 +38,5 @@ def greedysort(p):
 
 if '__name__' == '__main__':
 	ans = greedysort(seq)
-	print greedysort(ans)
+	#print greedysort(ans)
+	print ans

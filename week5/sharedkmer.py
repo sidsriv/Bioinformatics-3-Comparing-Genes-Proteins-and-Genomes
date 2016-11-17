@@ -1,3 +1,5 @@
+__author__ = 'Siddhant Srivastava'
+
 import sys
 from collections import defaultdict
 filename = sys.argv[1]

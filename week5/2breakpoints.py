@@ -1,3 +1,5 @@
+__author__ = 'Siddhant Srivastava'
+
 from collections import defaultdict
 
 def two_break_dist(P, Q):
